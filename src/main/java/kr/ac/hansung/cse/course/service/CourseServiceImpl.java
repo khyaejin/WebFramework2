@@ -8,7 +8,9 @@ import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
+import java.util.LinkedHashMap;
 import java.util.List;
+import java.util.Map;
 
 @Service
 @AllArgsConstructor
@@ -20,24 +22,31 @@ public class CourseServiceImpl implements CourseService {
     public CreditSummaryResult getCreditSummary() {
         List<Course> courses = courseDao.findAll();
 
-        List<CreditSummaryDto> summaries = new ArrayList<>();
+        // (year, semester)를 key로 묶어서 학점을 합산
+        Map<String, Integer> creditMap = new LinkedHashMap<>();
         int totalCredit = 0;
 
-        // TODO: 이미 정렬되어 있다고 가정
         for (Course course : courses) {
-            int year = course.getYear();
-            int semester = course.getSemester();
+            String key = course.getYear() + "-" + course.getSemester(); // 예: 2024-2
             int credit = course.getCredit();
 
-            // TODO: 같은 (year, semester) 단위로 묶여서 온다고 가정
-            // 단순히 순서대로 더해서 하나씩 추가
+            creditMap.put(key, creditMap.getOrDefault(key, 0) + credit);
+            totalCredit += credit;
+        }
+
+        // DTO로 변환
+        List<CreditSummaryDto> summaries = new ArrayList<>();
+        for (String key : creditMap.keySet()) {
+            String[] parts = key.split("-");
+            int year = Integer.parseInt(parts[0]);
+            int semester = Integer.parseInt(parts[1]);
+            int credit = creditMap.get(key);
+
             summaries.add(CreditSummaryDto.builder()
                     .year(year)
                     .semester(semester)
                     .credit(credit)
                     .build());
-
-            totalCredit += credit;
         }
 
         return CreditSummaryResult.builder()
