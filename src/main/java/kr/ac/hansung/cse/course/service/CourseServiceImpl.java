@@ -55,9 +55,10 @@ public class CourseServiceImpl implements CourseService {
                 .build();
     }
 
-    //
+    // 특정 학기 수강 교과목 상세 조회 메서드
     @Override
     public List<Course> getCoursesBySemester(int year, int semester) {
-        return List.of();
+        return courseDao.findBySemester(year, semester);
     }
+
 }

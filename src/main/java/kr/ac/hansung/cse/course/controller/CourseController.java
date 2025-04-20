@@ -31,9 +31,9 @@ public class CourseController {
 
     // 특정 학기 수강 교과목 상세 조회
     @GetMapping("/{year}/{semester}")
-    public String getCoursesBySemester(@PathVariable int year,
-                                       @PathVariable int semester,
-                                       Model model) {
+    public String getCoursesDetail(@PathVariable int year,
+                                   @PathVariable int semester,
+                                   Model model) {
         List<Course> courses = courseService.getCoursesBySemester(year, semester);
         model.addAttribute("courses", courses);
         model.addAttribute("year", year);
