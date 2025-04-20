@@ -1,6 +1,7 @@
 package kr.ac.hansung.cse.course.controller;
 
-import kr.ac.hansung.cse.model.Course;
+import kr.ac.hansung.cse.course.dto.CreditSummaryResult;
+import kr.ac.hansung.cse.course.model.Course;
 import kr.ac.hansung.cse.course.service.CourseService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
@@ -22,8 +23,9 @@ public class CourseController {
     @GetMapping
     public String getAllCreditSummary(Model model) {
         // 학기별 총 학점 리스트 반환
-        List<Object> summary = courseService.getCreditSummary();
+        CreditSummaryResult summary = courseService.getCreditSummary();
         model.addAttribute("summary", summary);
+
         return "creditSummary"; //jsp
     }
 

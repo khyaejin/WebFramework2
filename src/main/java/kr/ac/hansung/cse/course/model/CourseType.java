@@ -1,4 +1,4 @@
-package kr.ac.hansung.cse.model;
+package kr.ac.hansung.cse.course.model;
 
 // 교과 구분
 public enum CourseType {

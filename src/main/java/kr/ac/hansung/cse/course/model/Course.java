@@ -1,4 +1,4 @@
-package kr.ac.hansung.cse.model;
+package kr.ac.hansung.cse.course.model;
 
 import jakarta.persistence.*;
 import lombok.Getter;
