@@ -3,12 +3,12 @@
 
 <html>
 <head>
-  <title>학기별 이수 학점</title>
+  <title>학년별 이수 학점</title>
   <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/resources/css/main.css" />
 </head>
 <body>
 
-<h2>학기별 이수 학점</h2>
+<h2>학년별 이수 학점</h2>
 <table>
   <tr>
     <th>년도</th>

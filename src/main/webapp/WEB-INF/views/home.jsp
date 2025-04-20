@@ -1,17 +1,24 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: nykim
-  Date: 2022/12/13
-  Time: 12:55 오전
-  To change this template use File | Settings | File Templates.
---%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
-  <head>
-    <title>$Title$</title>
-  </head>
-  <body>
-  <p> <a href="${pageContext.request.contextPath}/offers"> Show current offers</a></p>
-  <p> <a href="${pageContext.request.contextPath}/createoffer"> Add a new offer</a></p>
-  </body>
+<head>
+  <title>수강 학점 관리 시스템</title>
+  <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/main.css" />
+</head>
+<body>
+
+<h2>수강 학점 관리 시스템</h2>
+<p>왼쪽 메뉴에서 원하는 기능을 선택하세요.</p>
+
+<ul>
+<%--  ① 학년별 이수 학점 조회--%>
+  <li><a href="${pageContext.request.contextPath}/credits">① 학년별 이수 학점 조회</a></li>
+
+<%--  ② 수강 신청하기--%>
+
+
+<%--  ③ 수강 신청 조회(2025년 2학기 수강 신청 내역을 디스플레이)--%>
+  <li><a href="${pageContext.request.contextPath}/credits/2025/2">③ 수강 신청 조회</a></li>
+</ul>
+
+</body>
 </html>

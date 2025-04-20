@@ -19,6 +19,8 @@ public class CourseController {
 
     private final CourseService courseService;
 
+
+
     // 학년별 이수 학점 조회(전체 학기별 이수 학점 요약 조회)
     @GetMapping
     public String getAllCreditSummary(Model model) {
@@ -26,18 +28,20 @@ public class CourseController {
         CreditSummaryResult summary = courseService.getCreditSummary();
         model.addAttribute("summary", summary);
 
-        return "creditSummary"; //jsp
+        return "creditSummary"; //creditSummary.jsp
     }
 
     // 특정 학기 수강 교과목 상세 조회
     @GetMapping("/{year}/{semester}")
-    public String getCoursesDetail(@PathVariable int year,
-                                   @PathVariable int semester,
+    public String getCoursesDetail(@PathVariable("year") int year,
+                                   @PathVariable("semester") int semester,
                                    Model model) {
         List<Course> courses = courseService.getCoursesBySemester(year, semester);
+
         model.addAttribute("courses", courses);
         model.addAttribute("year", year);
         model.addAttribute("semester", semester);
-        return "creditSummary"; //jsp
+
+        return "creditDetail"; //creditDetail.jsp
     }
 }
