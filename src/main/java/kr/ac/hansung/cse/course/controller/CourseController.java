@@ -1,13 +1,17 @@
 package kr.ac.hansung.cse.course.controller;
 
+import jakarta.validation.Valid;
 import kr.ac.hansung.cse.course.dto.CreditSummaryResult;
 import kr.ac.hansung.cse.course.model.Course;
 import kr.ac.hansung.cse.course.service.CourseService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
+import org.springframework.validation.ObjectError;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import java.util.List;
@@ -21,7 +25,7 @@ public class CourseController {
 
 
 
-    // 학년별 이수 학점 조회(전체 학기별 이수 학점 요약 조회)
+    // 1. 학년별 이수 학점 조회(전체 학기별 이수 학점 요약 조회)
     @GetMapping
     public String getAllCreditSummary(Model model) {
         // 학기별 총 학점 리스트 반환
@@ -31,7 +35,7 @@ public class CourseController {
         return "creditSummary"; //creditSummary.jsp
     }
 
-    // 특정 학기 수강 교과목 상세 조회
+    // 2. 특정 학기 수강 교과목 상세 조회
     @GetMapping("/{year}/{semester}")
     public String getCoursesDetail(@PathVariable("year") int year,
                                    @PathVariable("semester") int semester,
@@ -44,4 +48,33 @@ public class CourseController {
 
         return "creditDetail"; //creditDetail.jsp
     }
+
+    // 3-1. 수강 신청 폼 보여주기
+    @GetMapping("/register")
+    public String showCourseForm(Model model) {
+        Course course = new Course();
+        course.setYear(2025);
+        course.setSemester(2);
+        model.addAttribute("course", course);
+        return "createcourse"; // createcourse.jsp
+    }
+
+    // 3-2. 수강 신청 처리
+    @PostMapping("/docreate")
+    public String doCreate(Model model, @Valid Course course, BindingResult result) {
+        if (result.hasErrors()) {
+            System.out.println("== Form data does not validated ==");
+            List<ObjectError> errors = result.getAllErrors();
+            for (ObjectError error : errors) {
+                System.out.println(error.getDefaultMessage());
+            }
+            return "createcourse";
+        }
+
+        courseService.insertCourse(course);
+        return "coursecreated"; // coursecreated.jsp
+    }
+
+
+
 }
