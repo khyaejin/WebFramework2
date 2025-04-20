@@ -15,6 +15,7 @@ public interface CourseService {
     List<Course> getCoursesBySemester(int year, int semester);
 
     // 수강 신청 메서드
-    void registerCourse(Course course);
+    void insertCourse(Course course);
+
 
 }

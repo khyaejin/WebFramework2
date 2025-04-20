@@ -56,7 +56,7 @@
         </tr>
     </table>
 
-    <!-- hidden 값으로 고정된 학기 지정 -->
+    <!-- hidden 필드로 학기 고정 -->
     <form:hidden path="year" value="2025"/>
     <form:hidden path="semester" value="2"/>
 

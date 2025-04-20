@@ -63,7 +63,7 @@ public class CourseServiceImpl implements CourseService {
 
     // 수강 신청 메서드
     @Override
-    public void registerCourse(Course course) {
+    public void insertCourse(Course course) {
         courseDao.insert(course);
     }
 
