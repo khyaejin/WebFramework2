@@ -18,7 +18,7 @@ public class CourseController {
 
     private final CourseService courseService;
 
-    // 전체 학기별 이수 학점 요약 조회
+    // 학년별 이수 학점 조회(전체 학기별 이수 학점 요약 조회)
     @GetMapping
     public String getAllCreditSummary(Model model) {
         // 학기별 총 학점 리스트 반환
