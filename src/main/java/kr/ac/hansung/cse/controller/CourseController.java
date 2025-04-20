@@ -1,6 +1,7 @@
 package kr.ac.hansung.cse.controller;
 
 import kr.ac.hansung.cse.model.Course;
+import kr.ac.hansung.cse.service.CourseService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
