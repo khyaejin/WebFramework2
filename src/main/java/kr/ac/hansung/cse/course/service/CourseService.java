@@ -1,4 +1,4 @@
-package kr.ac.hansung.cse.service;
+package kr.ac.hansung.cse.course.service;
 
 import kr.ac.hansung.cse.model.Course;
 import org.springframework.stereotype.Service;
