@@ -14,5 +14,7 @@ public interface CourseService {
     // 특정 학기 수강 교과목 상세 조회 메서드
     List<Course> getCoursesBySemester(int year, int semester);
 
+    // 수강 신청 메서드
+    void registerCourse(Course course);
 
 }

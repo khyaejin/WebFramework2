@@ -61,4 +61,10 @@ public class CourseServiceImpl implements CourseService {
         return courseDao.findBySemester(year, semester);
     }
 
+    // 수강 신청 메서드
+    @Override
+    public void registerCourse(Course course) {
+        courseDao.insert(course);
+    }
+
 }
