@@ -4,64 +4,58 @@
 
 <html>
 <head>
-    <title>수강 신청하기</title>
+    <title>2025년 2학기 수강 신청</title>
     <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/main.css" />
 </head>
-<body>
+<body class="form-page">
 
-<h2>2025년 2학기 수강 신청</h2>
+<div class="form-container">
+    <h2>2025년 2학기 수강 신청</h2>
 
-<form:form method="POST" action="${pageContext.request.contextPath}/courses/docreate" modelAttribute="course">
+    <form:form method="POST" action="${pageContext.request.contextPath}/courses/register" modelAttribute="course">
+        <div class="form-group">
+            <label>교과목 코드:</label>
+            <form:input path="code" cssClass="form-input"/>
+            <form:errors path="code" cssClass="error-message"/>
+        </div>
 
-    <table class="formtable">
-        <tr>
-            <td class="label">교과목 코드:</td>
-            <td class="control">
-                <form:input path="code"/>
-                <form:errors path="code" cssClass="error"/>
-            </td>
-        </tr>
-        <tr>
-            <td class="label">교과목명:</td>
-            <td class="control">
-                <form:input path="name"/>
-                <form:errors path="name" cssClass="error"/>
-            </td>
-        </tr>
-        <tr>
-            <td class="label">교과 구분:</td>
-            <td class="control">
-                <form:select path="type">
-                    <form:option value="" label="--선택--"/>
-                    <form:option value="전공" />
-                    <form:option value="교양" />
-                    <form:option value="일반" />
-                </form:select>
-                <form:errors path="type" cssClass="error"/>
-            </td>
-        </tr>
-        <tr>
-            <td class="label">담당 교수:</td>
-            <td class="control">
-                <form:input path="instructor"/>
-                <form:errors path="instructor" cssClass="error"/>
-            </td>
-        </tr>
-        <tr>
-            <td class="label">학점:</td>
-            <td class="control">
-                <form:input path="credit" type="number"/>
-                <form:errors path="credit" cssClass="error"/>
-            </td>
-        </tr>
-    </table>
+        <div class="form-group">
+            <label>교과목명:</label>
+            <form:input path="name" cssClass="form-input"/>
+            <form:errors path="name" cssClass="error-message"/>
+        </div>
 
-    <!-- hidden 필드로 학기 고정 -->
-    <form:hidden path="year" value="2025"/>
-    <form:hidden path="semester" value="2"/>
+        <div class="form-group">
+            <label>교과 구분:</label>
+            <form:select path="type" cssClass="form-input">
+                <form:option value="" label="--선택--"/>
+                <form:option value="전공" />
+                <form:option value="교양" />
+                <form:option value="일반" />
+            </form:select>
+            <form:errors path="type" cssClass="error-message"/>
+        </div>
 
-    <input type="submit" value="신청 완료"/>
-</form:form>
+        <div class="form-group">
+            <label>담당 교수:</label>
+            <form:input path="instructor" cssClass="form-input"/>
+            <form:errors path="instructor" cssClass="error-message"/>
+        </div>
+
+        <div class="form-group">
+            <label>학점:</label>
+            <form:input path="credit" type="number" cssClass="form-input"/>
+            <form:errors path="credit" cssClass="error-message"/>
+        </div>
+
+        <form:hidden path="year" value="2025"/>
+        <form:hidden path="semester" value="2"/>
+
+        <div class="form-button">
+            <input type="submit" value="신청 완료" class="submit-button"/>
+        </div>
+    </form:form>
+</div>
 
 </body>
 </html>

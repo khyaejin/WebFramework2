@@ -49,32 +49,28 @@ public class CourseController {
         return "creditDetail"; //creditDetail.jsp
     }
 
+
     // 3-1. 수강 신청 폼 보여주기
     @GetMapping("/register")
-    public String showCourseForm(Model model) {
+    public String showRegisterForm(Model model) {
         Course course = new Course();
         course.setYear(2025);
         course.setSemester(2);
         model.addAttribute("course", course);
-        return "createcourse"; // createcourse.jsp
+        return "createcourse";  // 수강 신청 폼 jsp
     }
 
     // 3-2. 수강 신청 처리
-    @PostMapping("/docreate")
-    public String doCreate(Model model, @Valid Course course, BindingResult result) {
+    @PostMapping("/register")
+    public String processRegisterForm(Model model, @Valid Course course, BindingResult result) {
         if (result.hasErrors()) {
-            System.out.println("== Form data does not validated ==");
-            List<ObjectError> errors = result.getAllErrors();
-            for (ObjectError error : errors) {
-                System.out.println(error.getDefaultMessage());
-            }
-            return "createcourse";
+            System.out.println("유효성 검사 실패!");
+            return "createcourse";  // 다시 폼 보여줌
         }
 
         courseService.insertCourse(course);
-        return "coursecreated"; // coursecreated.jsp
+        return "coursecreated";  // 성공 메시지 페이지
     }
-
 
 
 }
