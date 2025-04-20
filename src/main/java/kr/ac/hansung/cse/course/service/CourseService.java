@@ -6,7 +6,6 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 
-@Service
 public interface CourseService {
 
     // 전체 학기별 이수 학점 요약 조회 메서드

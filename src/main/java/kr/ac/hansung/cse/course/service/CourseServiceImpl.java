@@ -1,12 +1,17 @@
 package kr.ac.hansung.cse.course.service;
 
+import kr.ac.hansung.cse.course.dao.CourseDao;
 import kr.ac.hansung.cse.course.dto.CreditSummaryDto;
 import kr.ac.hansung.cse.course.dto.CreditSummaryResult;
 import kr.ac.hansung.cse.course.model.Course;
+import lombok.AllArgsConstructor;
+import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
 
+@Service
+@AllArgsConstructor
 public class CourseServiceImpl implements CourseService {
     private final CourseDao courseDao;
 
