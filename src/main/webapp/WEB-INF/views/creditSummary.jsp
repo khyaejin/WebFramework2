@@ -37,6 +37,10 @@
     </tr>
     </tbody>
   </table>
+
+  <!-- 이미지 추가 부분 -->
+  <div class="bugi-graduate"></div>
+
 </div>
 
 </body>

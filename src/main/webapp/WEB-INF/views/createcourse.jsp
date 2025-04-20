@@ -33,9 +33,9 @@
             <label for="type">교과 구분</label>
             <form:select path="type" id="type" cssClass="form-input">
                 <form:option value="" label="-- 선택 --"/>
-                <form:option value="전공"/>
+                <form:option value="전필"/>
+                <form:option value="전선"/>
                 <form:option value="교양"/>
-                <form:option value="일반"/>
             </form:select>
             <form:errors path="type" cssClass="error-message"/>
         </div>
@@ -63,6 +63,9 @@
             <input type="submit" value="신청 완료" class="submit-button"/>
         </div>
     </form:form>
+
+    <!-- 부기 캐릭터 이미지 -->
+    <div class="bugi-developer"></div>
 </div>
 
 </body>

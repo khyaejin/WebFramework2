@@ -107,15 +107,73 @@ body {
     border-radius: 12px;
     box-shadow: 0 4px 10px rgba(0,0,0,0.1);
 }
+.form-container:hover {
+    box-shadow: 0 10px 28px rgba(0, 0, 0, 0.12);
+}
 
 h2 {
     text-align: center;
-    margin-bottom: 30px;
-    color: #333;
+    margin-bottom: 40px;
+    color: #2c3e50;
+    font-size: 26px;
+    font-weight: 600;
+    letter-spacing: -0.5px;
 }
 
 .form-group {
     margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.form-input {
+    width: 50%;
+    padding: 12px 16px;
+    font-size: 12px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    background-color: #f9f9f9;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    box-sizing: border-box;
+}
+
+.form-input:focus {
+    border-color: #1a73e8;
+    box-shadow: 0 0 6px rgba(26, 115, 232, 0.3);
+    outline: none;
+    background-color: #ffffff;
+}
+
+.error-message {
+    color: #ee4343;
+    font-size: 13px;
+    margin-top: 6px;
+    font-weight: 500;
+}
+
+.form-button {
+    text-align: center;
+    margin-top: 40px;
+}
+
+.submit-button {
+    padding: 12px 32px;
+    font-size: 16px;
+
+    background: linear-gradient(to right, #1a73e8, #155ab6);
+    border: none;
+    color: white;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background 0.3s ease, transform 0.2s ease;
+    box-shadow: 0 0 6px rgba(26, 115, 232, 0.3);
+}
+
+.submit-button:hover {
+    background: linear-gradient(to right, #1a73e8, #155ab6);
+    transform: translateY(-2px);
 }
 
 label {
@@ -123,39 +181,6 @@ label {
     font-weight: bold;
     margin-bottom: 8px;
     color: #444;
-}
-
-.form-input {
-    width: 100%;
-    padding: 10px;
-    font-size: 15px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-}
-
-.error-message {
-    color: red;
-    font-size: 13px;
-    margin-top: 5px;
-}
-
-.form-button {
-    text-align: center;
-    margin-top: 30px;
-}
-
-.submit-button {
-    padding: 10px 25px;
-    font-size: 16px;
-    background-color: #4CAF50;
-    border: none;
-    color: white;
-    border-radius: 6px;
-    cursor: pointer;
-}
-
-.submit-button:hover {
-    background-color: #45a049;
 }
 
 /* =========================== */
@@ -180,12 +205,15 @@ body.credit-page {
     border-collapse: collapse;
     font-size: 16px;
     margin-top: 20px;
+    background-color: #fafafa;
+    border-radius: 8px;
+    overflow: hidden;
 }
 
 .styled-table th,
 .styled-table td {
-    border: 1px solid #ccc;
-    padding: 14px;
+    border: 1px solid #ddd;
+    padding: 14px 16px;
     text-align: center;
 }
 
@@ -195,24 +223,49 @@ body.credit-page {
     color: #003366;
 }
 
+.styled-table tr:nth-child(even) {
+    background-color: #f6f9fc;
+}
+
 .total-row {
-    background-color: #f5f5f5;
+    background-color: #f2f2f2;
     font-weight: bold;
 }
 
 .link-button {
-    padding: 6px 12px;
+    padding: 8px 14px;
     background-color: #2c82c9;
     color: white;
     border-radius: 6px;
     text-decoration: none;
     font-size: 14px;
-    transition: background 0.2s;
+    transition: background 0.2s, transform 0.2s;
+    display: inline-block;
 }
 
 .link-button:hover {
     background-color: #1969a9;
+    transform: scale(1.05);
 }
+
+.action-button {
+    background-color: #1a73e8;
+    color: white;
+    padding: 10px 24px;
+    font-size: 15px;
+    font-weight: bold;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.action-button:hover {
+    background-color: #155ab6;
+    transform: translateY(-2px);
+}
+
 
 /* =========================== */
 
@@ -247,24 +300,51 @@ input[type=submit]:hover {
 /* 이미지 */
 
 .bugi-developer {
-    width: 100px;
-    height: 100px;
+    width: 140px;
+    height: 140px;
     background-image: url("../images/bugi-developer.png");
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
-    display: inline-block;
+    display: block;
+    margin: 40px auto 0;
+    transition: transform 0.3s ease;
+}
+.bugi-developer:hover {
+    transform: scale(1.05);
+}
+
+
+.bugi-sit {
+    width: 140px;
+    height: 140px;
+    background-image: url("../images/bugi-sit.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    display: block;
+    margin: 40px auto 0;
+    transition: transform 0.3s ease;
+}
+.bugi-sit:hover {
+    transform: scale(1.05);
 }
 
 .bugi-graduate {
-    width: 100px;
-    height: 100px;
+    width: 140px;
+    height: 140px;
     background-image: url("../images/bugi-graduate.png");
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
-    display: inline-block;
+    display: block;
+    margin: 40px auto 0;
+    transition: transform 0.3s ease;
 }
+.bugi-graduate:hover {
+    transform: scale(1.05);
+}
+
 
 .bugi-no {
     width: 100px;
@@ -287,12 +367,20 @@ input[type=submit]:hover {
 }
 
 .hansung-logo {
-    width: 120px;
-    height: 40px;
+    width: 60px;
+    height: 60px;
     background-image: url("../images/hansung-logo.png");
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
     display: inline-block;
 }
+
+.logo-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
 

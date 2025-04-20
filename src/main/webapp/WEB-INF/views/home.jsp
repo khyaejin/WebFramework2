@@ -2,14 +2,19 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
 <head>
-  <title>수강 학점 관리 시스템</title>
+  <title>학사 정보 시스템</title>
   <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/main.css" />
 </head>
 <body>
 
 <div class="container">
   <header class="header">
-    <h1>수강 학점 관리 시스템</h1>
+    <!-- 한성대 로고 -->
+    <div class="logo-wrapper">
+      <div class="hansung-logo"></div>
+    </div>
+
+    <h1>학사 정보 시스템</h1>
     <p>학생의 수강 내역과 학점을 효과적으로 관리할 수 있습니다.</p>
   </header>
 

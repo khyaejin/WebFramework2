@@ -35,6 +35,11 @@
     </c:forEach>
     </tbody>
   </table>
+
+  <!-- 가운데 하단에 bugi-sit 캐릭터 삽입 -->
+  <div class="image-center">
+    <div class="bugi-sit"></div>
+  </div>
 </div>
 
 </body>
